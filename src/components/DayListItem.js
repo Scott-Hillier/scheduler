@@ -5,7 +5,7 @@ import classNames from "classnames";
 export default function DayListItem(props) {
   const buttonClass = classNames("day-list__item", {
     "day-list__item--selected": props.selected,
-    "day-list__item--selected": props.spots === 0,
+    "day-list__item--full": props.spots === 0,
   });
   const formatSpots = (spots) => {
     if (spots === 0) {
