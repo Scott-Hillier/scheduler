@@ -29,7 +29,26 @@ function getInterview(state, interview) {
   }
 }
 
+function getInterviewersForDay(state, day) {
+  //... returns an array of appointments for that day
+  const filteredDays = state.days.find((selectDay) => selectDay.name === day);
+  const filteredDaysInterviewers = filteredDays
+    ? filteredDays.interviewers
+    : [];
+
+  const data = [];
+  filteredDaysInterviewers.forEach((interviewerId) => {
+    for (const key in state.interviewers) {
+      if (interviewerId == key) {
+        data.push(state.interviewers[key]);
+      }
+    }
+  });
+  return data;
+}
+
 module.exports = {
-  getAppointmentsForDay: getAppointmentsForDay,
-  getInterview: getInterview,
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
 };
