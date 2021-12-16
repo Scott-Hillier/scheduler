@@ -3,6 +3,8 @@ import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 import { useState } from "react";
 
+// Displays this for user to book an interview
+// All the functionality for users to input name, select inerviewer, cancel or save interview
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);

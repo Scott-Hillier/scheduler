@@ -18,6 +18,8 @@ const CONFIRM = "CONFIRM";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR DELETE";
 
+// This controls all relevant information for booking appointments
+// Passes down necessary props and controls the transitions between displays
 export default function Appointment(props) {
   let { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY

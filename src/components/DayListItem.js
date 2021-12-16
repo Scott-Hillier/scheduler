@@ -2,6 +2,7 @@ import React from "react";
 import "components/DayListItem.scss";
 import classNames from "classnames";
 
+// All the relevant information for the days
 export default function DayListItem(props) {
   const buttonClass = classNames("day-list__item", {
     "day-list__item--selected": props.selected,

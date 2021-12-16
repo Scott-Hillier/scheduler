@@ -10,6 +10,7 @@ export default function useApplicationData(initial) {
 
   const setDay = (day) => setState({ ...state, day });
 
+  // Counts number of spots remaining
   const spotsRemaining = (input) => {
     return state.days.map((day) => {
       if (day.name === state.day && input) {
@@ -22,6 +23,7 @@ export default function useApplicationData(initial) {
     });
   };
 
+  // Function to access database and book interview
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -43,6 +45,7 @@ export default function useApplicationData(initial) {
     });
   };
 
+  // Function to access database and delete interview
   const deleteInterview = (id) => {
     return axios.delete(`/api/appointments/${id}`).then(() => {
       setState({
@@ -52,6 +55,7 @@ export default function useApplicationData(initial) {
     });
   };
 
+  // Fetches relevant information from database
   useEffect(() => {
     Promise.all([
       axios.get(`http://localhost:8001/api/days`),

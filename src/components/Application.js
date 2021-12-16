@@ -10,6 +10,7 @@ import {
 } from "../helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
+// This function controls all the appointments
 export default function Application(props) {
   const { state, setDay, bookInterview, deleteInterview } =
     useApplicationData();

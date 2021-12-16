@@ -1,5 +1,6 @@
 import React from "react";
 
+// Display for when there isn't an interview scheduled
 export default function Empty(props) {
   return (
     <main className="appointment__add">
