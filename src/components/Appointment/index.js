@@ -31,15 +31,12 @@ export default function Appointment(props) {
       interviewer,
     };
     transition(SAVING);
-    console.log(props.id, interview);
     Promise.resolve(props.bookInterview(props.id, interview))
 
       .then(() => {
-        console.log("something");
-        transition(SHOW);
+        transition(SHOW, false);
       })
       .catch((error) => {
-        console.log("text");
         transition(ERROR_SAVE, true);
       });
   };
@@ -53,22 +50,21 @@ export default function Appointment(props) {
       })
       .catch((error) => transition(ERROR_DELETE, true));
   };
-
   return (
     <article className="appointment">
       <Header time={props.time} />
       <div>
-        {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+        {mode === EMPTY && <Empty onAdd={() => transition(CREATE, false)} />}
         {mode === SHOW && (
           <Show
-            student={props.interview.student ? props.interview.student : null}
+            student={props.interview ? props.interview.student : null}
             interviewer={
-              props.interview.interviewer
-                ? props.interview.interviewer.name
-                : null
+              props.interview ? props.interview.interviewer.name : null
             }
-            onDelete={() => transition(CONFIRM)}
-            onEdit={() => transition(CREATE)}
+            onDelete={() => transition(CONFIRM, false)}
+            onEdit={() => {
+              transition(CREATE, false);
+            }}
           />
         )}
         {mode === CREATE && (

@@ -8,7 +8,7 @@ function getAppointmentsForDay(state, day) {
   const data = [];
   filteredDaysAppointments.forEach((appointmentId) => {
     for (const key in state.appointments) {
-      if (appointmentId == key) {
+      if (appointmentId.toString() === key) {
         data.push(state.appointments[key]);
       }
     }
@@ -39,7 +39,7 @@ function getInterviewersForDay(state, day) {
   const data = [];
   filteredDaysInterviewers.forEach((interviewerId) => {
     for (const key in state.interviewers) {
-      if (interviewerId == key) {
+      if (interviewerId.toString() === key) {
         data.push(state.interviewers[key]);
       }
     }
